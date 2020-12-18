@@ -1,4 +1,4 @@
-package com.epam.cube.reader;
+package com.epam.cube.model.reader;
 
 import com.epam.cube.exception.ReaderException;
 import org.apache.logging.log4j.LogManager;

@@ -1,4 +1,4 @@
-package com.epam.cube.entity;
+package com.epam.cube.model.entity;
 
 public enum ShapeProperty {
     X,

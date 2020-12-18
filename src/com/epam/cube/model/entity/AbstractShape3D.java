@@ -1,4 +1,4 @@
-package com.epam.cube.entity;
+package com.epam.cube.model.entity;
 
 import com.epam.cube.util.IdGenerator;
 

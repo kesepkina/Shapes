@@ -1,11 +1,11 @@
-package com.epam.cube.service;
+package com.epam.cube.model.service;
 
-import com.epam.cube.entity.Cube;
-import com.epam.cube.entity.CubePart;
-import com.epam.cube.entity.Point3D;
+import com.epam.cube.model.entity.Cube;
+import com.epam.cube.model.entity.CubePart;
+import com.epam.cube.model.entity.Point3D;
 
-
-import java.util.*;
+import java.util.EnumMap;
+import java.util.Map;
 
 public class CubeService {
 

@@ -1,10 +1,10 @@
-package com.epam.cube.factory.impl;
+package com.epam.cube.model.factory.impl;
 
-import com.epam.cube.entity.Cube;
-import com.epam.cube.entity.ShapeProperty;
-import com.epam.cube.entity.Point3D;
-import com.epam.cube.entity.AbstractShape3D;
-import com.epam.cube.factory.ShapeFactory;
+import com.epam.cube.model.entity.Cube;
+import com.epam.cube.model.entity.ShapeProperty;
+import com.epam.cube.model.entity.Point3D;
+import com.epam.cube.model.entity.AbstractShape3D;
+import com.epam.cube.model.factory.ShapeFactory;
 
 import java.util.Map;
 

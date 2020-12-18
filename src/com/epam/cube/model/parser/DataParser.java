@@ -1,6 +1,6 @@
-package com.epam.cube.parser;
+package com.epam.cube.model.parser;
 
-import com.epam.cube.entity.ShapeProperty;
+import com.epam.cube.model.entity.ShapeProperty;
 import com.epam.cube.validation.CubeValidator;
 import com.epam.cube.validation.PointValidator;
 
