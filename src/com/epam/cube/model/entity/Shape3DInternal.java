@@ -1,6 +1,6 @@
 package com.epam.cube.model.entity;
 
-public enum ShapeProperty {
+public enum Shape3DInternal {
     X,
     Y,
     Z,

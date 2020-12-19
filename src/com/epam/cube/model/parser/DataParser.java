@@ -1,6 +1,6 @@
 package com.epam.cube.model.parser;
 
-import com.epam.cube.model.entity.ShapeProperty;
+import com.epam.cube.model.entity.Shape3DInternal;
 import com.epam.cube.validation.CubeValidator;
 import com.epam.cube.validation.PointValidator;
 
@@ -11,9 +11,9 @@ public class DataParser {
 
     private static final String DELIMITER = "\\s";
 
-    public Map<ShapeProperty, Double> parseCubeData(String inputtedData) {
+    public Map<Shape3DInternal, Double> parseCubeData(String inputtedData) {
         String[] splitData = inputtedData.trim().split(DELIMITER);
-        Map<ShapeProperty, Double> cubeData = new EnumMap<>(ShapeProperty.class);
+        Map<Shape3DInternal, Double> cubeData = new EnumMap<>(Shape3DInternal.class);
 
         if (splitData.length == 4 && PointValidator.isCoordinate(splitData[0]) && PointValidator.isCoordinate(splitData[1])
                 && PointValidator.isCoordinate(splitData[2]) && CubeValidator.isLength(splitData[3])) {
@@ -23,10 +23,10 @@ public class DataParser {
             double z = Double.parseDouble(splitData[2]);
             double sideLength = Double.parseDouble(splitData[3]);
 
-            cubeData.put(ShapeProperty.X, x);
-            cubeData.put(ShapeProperty.Y, y);
-            cubeData.put(ShapeProperty.Z, z);
-            cubeData.put(ShapeProperty.SIDE_LENGTH, sideLength);
+            cubeData.put(Shape3DInternal.X, x);
+            cubeData.put(Shape3DInternal.Y, y);
+            cubeData.put(Shape3DInternal.Z, z);
+            cubeData.put(Shape3DInternal.SIDE_LENGTH, sideLength);
         }
 
         return cubeData;
