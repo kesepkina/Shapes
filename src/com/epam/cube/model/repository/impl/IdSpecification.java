@@ -5,7 +5,7 @@ import com.epam.cube.model.repository.Specification;
 
 public class IdSpecification implements Specification {
 
-    private int id;
+    private final int id;
 
     public IdSpecification(int id) {
         this.id = id;
