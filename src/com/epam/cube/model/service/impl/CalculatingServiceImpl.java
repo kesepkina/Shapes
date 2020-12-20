@@ -3,12 +3,12 @@ package com.epam.cube.model.service.impl;
 import com.epam.cube.model.entity.Cube;
 import com.epam.cube.model.entity.CubePart;
 import com.epam.cube.model.entity.Point3D;
-import com.epam.cube.model.service.CubeService;
+import com.epam.cube.model.service.CalculatingService;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-public class CubeServiceImpl implements CubeService {
+public class CalculatingServiceImpl implements CalculatingService {
 
     @Override
     public double calculateSurfaceArea(Cube cube) {
@@ -58,7 +58,7 @@ public class CubeServiceImpl implements CubeService {
     public Map<CubePart, Double> calculateVolumesRatioAfterCuttingByCoordinatePlaneOyz(Cube cube) {
         Point3D basicPoint = cube.getBasicPoint();
         double x = basicPoint.getX();
-        Map<CubePart, Double> volumesRatio = calculateVolumesRatioAfterCuttingByCoordinatePlane(x, cube, CubePart.BEHIND_OYX_PLATE, CubePart.IN_FRONT_OF_OYZ_PLATE);
+        Map<CubePart, Double> volumesRatio = calculateVolumesRatioAfterCuttingByCoordinatePlane(x, cube, CubePart.BEHIND_OYZ_PLATE, CubePart.IN_FRONT_OF_OYZ_PLATE);
         return volumesRatio;
     }
 

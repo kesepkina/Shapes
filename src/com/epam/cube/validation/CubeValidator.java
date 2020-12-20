@@ -13,6 +13,7 @@ public class CubeValidator {
     public static boolean isLength(String sideLength) {
         Matcher matcher= LENGTH.matcher(sideLength);
         boolean isLength = matcher.matches();
-        return isLength;
+        double lengthNumber = Double.parseDouble(sideLength);
+        return (isLength && lengthNumber > 0);
     }
 }

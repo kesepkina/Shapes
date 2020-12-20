@@ -5,7 +5,7 @@ import com.epam.cube.model.entity.CubePart;
 
 import java.util.Map;
 
-public interface CubeService {
+public interface CalculatingService {
 
     double calculateSurfaceArea(Cube cube);
 

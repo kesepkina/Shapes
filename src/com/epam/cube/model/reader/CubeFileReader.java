@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FileReader {
+public class CubeFileReader {
 
     private static final Logger log = LogManager.getLogger();
     private static final String DEFAULT_PATH = "res/data/default.txt";

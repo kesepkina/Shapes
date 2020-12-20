@@ -3,7 +3,7 @@ package com.epam.cube.model.warehouse;
 import com.epam.cube.model.entity.Cube;
 import com.epam.cube.model.entity.Shape3DProperties;
 import com.epam.cube.model.repository.CubeRepository;
-import com.epam.cube.model.service.impl.CubeServiceImpl;
+import com.epam.cube.model.service.impl.CalculatingServiceImpl;
 
 public class WarehouseCreator {
 
@@ -13,7 +13,7 @@ public class WarehouseCreator {
     public static void fillShape3DWarehouse () {
 
         CubeRepository cubeRepository = CubeRepository.getInstance();
-        CubeServiceImpl cubeService = new CubeServiceImpl();
+        CalculatingServiceImpl cubeService = new CalculatingServiceImpl();
         Shape3DPropertiesWarehouse warehouse = Shape3DPropertiesWarehouse.getInstance();
 
         int size = cubeRepository.size();

@@ -14,31 +14,36 @@ public class AnalysisServiceImpl implements AnalysisService {
 
     @Override
     public boolean adjoinsToAnyCoordinatePlate(Cube cube) {
-        Point3D basicPoint = cube.getBasicPoint();
-        double x = basicPoint.getX();
-        double y = basicPoint.getY();
-        double z = basicPoint.getZ();
-        return (x == 0 || y == 0 || z == 0);
+        boolean adjoinsToCoordinatePlateOxy = adjoinsToCoordinatePlateOxy(cube);
+        boolean adjoinsToCoordinatePlateOxz = adjoinsToCoordinatePlateOxz(cube);
+        boolean adjoinsToCoordinatePlateOyz = adjoinsToCoordinatePlateOyz(cube);
+        return (adjoinsToCoordinatePlateOxy || adjoinsToCoordinatePlateOxz || adjoinsToCoordinatePlateOyz);
     }
 
     @Override
     public boolean adjoinsToCoordinatePlateOxy(Cube cube) {
         Point3D basicPoint = cube.getBasicPoint();
         double z = basicPoint.getZ();
-        return (z == 0);
+        double sideLength = cube.getSideLength();
+        double z2 = z + sideLength;
+        return (z == 0 || z2 == 0);
     }
 
     @Override
     public boolean adjoinsToCoordinatePlateOxz(Cube cube) {
         Point3D basicPoint = cube.getBasicPoint();
         double y = basicPoint.getY();
-        return (y == 0);
+        double sideLength = cube.getSideLength();
+        double y2 = y + sideLength;
+        return (y == 0 || y2 == 0);
     }
 
     @Override
     public boolean adjoinsToCoordinatePlateOyz(Cube cube) {
         Point3D basicPoint = cube.getBasicPoint();
         double x = basicPoint.getX();
-        return (x == 0);
+        double sideLength = cube.getSideLength();
+        double x2 = x + sideLength;
+        return (x == 0 || x2 == 0);
     }
 }

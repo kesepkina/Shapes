@@ -65,10 +65,6 @@ public class CubeRepository {
         return cubes.set(index, element);
     }
 
-    public void add(int index, Cube element) {
-        cubes.add(index, element);
-    }
-
     public Cube remove(int index) {
         return cubes.remove(index);
     }
