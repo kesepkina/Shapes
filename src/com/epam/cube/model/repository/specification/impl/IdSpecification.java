@@ -1,7 +1,7 @@
-package com.epam.cube.model.repository.impl;
+package com.epam.cube.model.repository.specification.impl;
 
 import com.epam.cube.model.entity.Cube;
-import com.epam.cube.model.repository.Specification;
+import com.epam.cube.model.repository.specification.Specification;
 
 public class IdSpecification implements Specification {
 

@@ -1,12 +1,17 @@
 package com.epam.cube.model.entity;
 
+import com.epam.cube.model.observer.Observable;
+import com.epam.cube.model.observer.Observer;
+import com.epam.cube.model.observer.impl.CubeObserver;
+
 import java.util.StringJoiner;
 
-public class Cube extends AbstractShape3D {
+public class Cube extends AbstractShape3D implements Observable {
 
     // basicPoint is the farthest lower left corner of cube
 
     private double sideLength;
+    private Observer<Cube> observer;
 
     public Cube() {
         sideLength = 1;
@@ -28,6 +33,24 @@ public class Cube extends AbstractShape3D {
 
     public void setSideLength(double sideLength) {
         this.sideLength = sideLength;
+        notifyObserver();
+    }
+
+    @Override
+    public void attach(Observer observer) {
+        this.observer = observer;
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        this.observer = null;
+    }
+
+    @Override
+    public void notifyObserver() {
+        if(observer != null) {
+            observer.changeAllProperties(this);
+        }
     }
 
     @Override

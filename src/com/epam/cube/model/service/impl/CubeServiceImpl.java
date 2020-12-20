@@ -1,6 +1,5 @@
 package com.epam.cube.model.service.impl;
 
-import com.epam.cube.model.entity.AbstractShape3D;
 import com.epam.cube.model.entity.Cube;
 import com.epam.cube.model.entity.CubePart;
 import com.epam.cube.model.entity.Point3D;
@@ -10,7 +9,6 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class CubeServiceImpl implements CubeService {
-
 
     @Override
     public double calculateSurfaceArea(Cube cube) {
@@ -24,6 +22,20 @@ public class CubeServiceImpl implements CubeService {
         double sideLength = cube.getSideLength();
         double volume = Math.pow(sideLength, 3);
         return volume;
+    }
+
+    @Override
+    public double calculateDistanceFromCenterToOrigin(Cube cube) {
+        Point3D basicPoint = cube.getBasicPoint();
+        double x = basicPoint.getX();
+        double y = basicPoint.getY();
+        double z = basicPoint.getZ();
+        double sideLength = cube.getSideLength();
+        x += sideLength / 2;
+        y += sideLength / 2;
+        z += sideLength / 2;
+        double distanceToOrigin = Math.sqrt(x * x + y * y + z * z);
+        return distanceToOrigin;
     }
 
     @Override
@@ -68,40 +80,5 @@ public class CubeServiceImpl implements CubeService {
             }
         }
         return volumesRatio;
-    }
-
-    @Override
-    public boolean isCube(AbstractShape3D o) {
-        return (o.getClass() == Cube.class);
-    }
-
-    @Override
-    public boolean adjoinsToAnyCoordinatePlate(Cube cube) {
-        Point3D basicPoint = cube.getBasicPoint();
-        double x = basicPoint.getX();
-        double y = basicPoint.getY();
-        double z = basicPoint.getZ();
-        return (x == 0 || y == 0 || z == 0);
-    }
-
-    @Override
-    public boolean adjoinsToCoordinatePlateOxy(Cube cube) {
-        Point3D basicPoint = cube.getBasicPoint();
-        double z = basicPoint.getZ();
-        return (z == 0);
-    }
-
-    @Override
-    public boolean adjoinsToCoordinatePlateOxz(Cube cube) {
-        Point3D basicPoint = cube.getBasicPoint();
-        double y = basicPoint.getY();
-        return (y == 0);
-    }
-
-    @Override
-    public boolean adjoinsToCoordinatePlateOyz(Cube cube) {
-        Point3D basicPoint = cube.getBasicPoint();
-        double x = basicPoint.getX();
-        return (x == 0);
     }
 }

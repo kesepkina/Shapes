@@ -18,10 +18,6 @@ public class Shape3DPropertiesWarehouse {
         return instance;
     }
 
-    public Map<Integer, Shape3DProperties> getPropertiesMap() {
-        return new HashMap<>(propertiesMap);
-    }
-
     public void setPropertiesMap(Map<Integer, Shape3DProperties> propertiesMap) {
         this.propertiesMap = propertiesMap;
     }
@@ -36,6 +32,7 @@ public class Shape3DPropertiesWarehouse {
 
     public Shape3DProperties getProperties(Integer shapeId) {
         Shape3DProperties properties = propertiesMap.get(shapeId);
-        return properties;
+        Shape3DProperties propertiesCopy = new Shape3DProperties(properties);
+        return propertiesCopy;
     }
 }

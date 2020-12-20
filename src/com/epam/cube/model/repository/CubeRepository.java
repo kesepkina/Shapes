@@ -1,10 +1,10 @@
 package com.epam.cube.model.repository;
 
 import com.epam.cube.model.entity.Cube;
+import com.epam.cube.model.repository.specification.Specification;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,8 +13,20 @@ public class CubeRepository {
     private static final CubeRepository instance = new CubeRepository();
     List<Cube> cubes;
 
-    public CubeRepository() {
+    private CubeRepository() {
         this.cubes = new ArrayList<>();
+    }
+
+    public static CubeRepository getInstance() {
+        return instance;
+    }
+
+    public List<Cube> getCubes() {
+        return new ArrayList<>(cubes);
+    }
+
+    public void setCubes(List<Cube> cubes) {
+        this.cubes = cubes;
     }
 
     public int size() {
@@ -41,7 +53,7 @@ public class CubeRepository {
         return cubes.addAll(c);
     }
 
-    public boolean removeAll(Collection<?> c) {
+    public boolean removeAll(Collection<Cube> c) {
         return cubes.removeAll(c);
     }
 
@@ -62,8 +74,7 @@ public class CubeRepository {
     }
 
     public List<Cube> query(Specification specification) {
-        List<Cube> resultList = cubes.stream().filter(o -> specification.specify(o)).collect(Collectors.toList());
+        List<Cube> resultList = cubes.stream().filter(specification::specify).collect(Collectors.toList());
         return resultList;
     }
-    //sorts
 }

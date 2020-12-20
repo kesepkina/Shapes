@@ -1,8 +1,8 @@
-package com.epam.cube.model.repository.impl;
+package com.epam.cube.model.repository.specification.impl;
 
 import com.epam.cube.model.entity.Cube;
 import com.epam.cube.model.entity.Shape3DProperties;
-import com.epam.cube.model.repository.Specification;
+import com.epam.cube.model.repository.specification.Specification;
 import com.epam.cube.model.warehouse.Shape3DPropertiesWarehouse;
 
 public class SurfaceAreaIntervalSpecification implements Specification {
